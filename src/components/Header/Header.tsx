@@ -9,8 +9,8 @@ export function Header(){
                     <p>Amigos do Rei</p>
                 </div>
                 <div>
-                    <a href="#" >Sobre</a>
-                    <a href="#" >Cadastro</a>
+                    <span >Sobre</span>
+                    <span>Cadastro</span>
                 </div>
             </Container>
         </>

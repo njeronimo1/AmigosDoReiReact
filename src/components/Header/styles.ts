@@ -17,10 +17,10 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
 
-        a{
+        span{
             padding: 0 1rem 00;
-            text-decoration: none;
             color: white;
+            cursor: pointer;
 
             &:hover{
                 opacity: 0.8;
