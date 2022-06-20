@@ -1,7 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'http://localhost:4002/'
+    baseURL: 'https://api-amigos-do-rei.herokuapp.com'
 });
-
-// https://api-amigos-do-rei.herokuapp.com
