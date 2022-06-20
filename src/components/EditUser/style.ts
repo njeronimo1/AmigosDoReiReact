@@ -1,14 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.form`
-
-    background-color: white;
-    color: black;
-    padding: 1rem;
-    border-radius: 0.25rem;
-    margin-top: 1.5rem;
-    width: 25%;
-
+export const ContainerModal = styled.form`
+    width: 100%;
     main{
         display: flex;
         flex-direction: column;
@@ -32,8 +25,4 @@ export const Container = styled.form`
         }
     }
 
-    @media(max-width:500px) {
-        width: 90%;
-        margin: 2%;
-    }
 `

@@ -10,14 +10,15 @@ export const Container = styled.footer`
     
     width: 100%;
     position: absolute;
-    bottom:0;
+    bottom: 0;
+    
     h3{
         display: none;
     }
 
     @media(max-width:500px) {
         font-size: 0.6rem;
-        background-color: transparent;
+        position: relative;
         h4{
             display: none;
         }
@@ -25,7 +26,7 @@ export const Container = styled.footer`
         h3{
             display: flex;
             text-align: center;
-
         }
+
     }
 `

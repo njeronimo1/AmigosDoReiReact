@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { api } from "../../services/api";
+import { toast } from "react-toastify";
 import { Container } from "./style";
 
 export function Formulario(){
@@ -17,11 +18,21 @@ export function Formulario(){
             idade
         }
 
-        api.post('/cadastro', data).then(res => console.log(res));
+        try{
+            if(nome === "" || idade === "" || endereco === ""){
+                toast.error("Preencha os campos necessários");
+            }else{
+                api.post('/cadastro', data).then(res => console.log(res));
+                toast.success("Formulário enviado com sucesso!");    
+            }
+        }catch{
+            toast.error("Falha no envio do formulário");
+        }
+        
 
-        setNome('');
-        setEndereco('');
-        setIdade('');
+        setNome("");
+        setEndereco("");
+        setIdade("");
     }
 
     return (
@@ -45,6 +56,7 @@ export function Formulario(){
                     
                     <input type="text"
                     placeholder="Idade"
+                    value={idade}
                     onChange={event => setIdade(event.target.value)}
                     />
                     
