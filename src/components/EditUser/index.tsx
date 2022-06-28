@@ -63,58 +63,49 @@ export function EditUser({id, isOpen, onCloseEditUser}:EditUserProps){
         
     }
 
-    console.log(id);
-    console.log(usuario);
-    console.log(nome, endereco, idade);
-    // setNome();
-    // setEndereco(usuario.endereco);
-    // setIdade(usuario.idade);
-    
 
     return(
-        <>
         <Modal
-                isOpen={isOpen}
-                onRequestClose={onCloseEditUser}
-                overlayClassName="edit_user_overlay"
-                className="edit_user_content"
-                >
-                <button 
-                    type="button"
-                    onClick={onCloseEditUser} 
-                    className="react-modal-close"
-                >
-                    <img src={imgClose} alt='Fechar' />
-                </button>
-                
-                <ContainerModal onSubmit={handleUserCreate}>
-                <header>
-                    <h2>Edite o usuário</h2>
-                </header>
-                <main>
-                    <input type="text" 
-                    placeholder="Nome completo"
-                    value={usuario.nome}
-                    onChange={event => setUsuario(prevState => ({...prevState, nome:event.target.value})) } 
-                    />
+            isOpen={isOpen}
+            onRequestClose={onCloseEditUser}
+            overlayClassName="edit_user_overlay"
+            className="edit_user_content"
+            >
+            <button 
+                type="button"
+                onClick={onCloseEditUser} 
+                className="react-modal-close"
+            >
+                <img src={imgClose} alt='Fechar' />
+            </button>
             
-                    <input type="text" 
-                    placeholder="Endereço"
-                    value={usuario.endereco}
-                    onChange={event => setUsuario(prevState => ({...prevState, endereco:event.target.value}))} 
-                    />
+            <ContainerModal onSubmit={handleUserCreate}>
+            <header>
+                <h2>Edite o usuário</h2>
+            </header>
+            <main>
+                <input type="text" 
+                placeholder="Nome completo"
+                value={usuario.nome}
+                onChange={event => setUsuario(prevState => ({...prevState, nome:event.target.value})) } 
+                />
+        
+                <input type="text" 
+                placeholder="Endereço"
+                value={usuario.endereco}
+                onChange={event => setUsuario(prevState => ({...prevState, endereco:event.target.value}))} 
+                />
+        
+                <input type="text"
+                placeholder="Idade"
+                value={usuario.idade}
+                onChange={event => setUsuario(prevState => ({...prevState, idade:event.target.value}))}
+                />
+        
+                <input type="submit" value="Enviar" />
+                </main>
             
-                    <input type="text"
-                    placeholder="Idade"
-                    value={usuario.idade}
-                    onChange={event => setUsuario(prevState => ({...prevState, idade:event.target.value}))}
-                    />
-            
-                    <input type="submit" value="Enviar" />
-                    </main>
-                
-                    </ContainerModal>
-                </Modal>
-        </>
+                </ContainerModal>
+        </Modal>
     )
 }
