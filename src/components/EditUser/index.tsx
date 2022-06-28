@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { FormEvent } from "react";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { ContainerModal } from "./style";
 import { api } from "../../services/api";
 

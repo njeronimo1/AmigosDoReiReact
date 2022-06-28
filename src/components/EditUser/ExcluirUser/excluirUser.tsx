@@ -1,4 +1,4 @@
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { toast } from 'react-toastify';
 import imgClose from '../../../assets/vector.svg';
 import { api } from '../../../services/api';
