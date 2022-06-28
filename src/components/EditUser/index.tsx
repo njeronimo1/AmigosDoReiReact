@@ -32,10 +32,6 @@ export function EditUser({id, isOpen, onCloseEditUser}:EditUserProps){
         idade: ""
     });
     
-    const [nome, setNome]         = useState("");
-    const [endereco, setEndereco] = useState("");
-    const [idade, setIdade]       = useState("");
-
     useEffect(()=>{
         api.get(`/usuarios/${id}`)
         .then(response => setUsuario(response.data));

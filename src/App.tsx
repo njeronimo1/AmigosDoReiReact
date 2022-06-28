@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Home } from './pages/Inicio/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ListaDesbravadores } from './pages/ListaDesbravadores/Index';
