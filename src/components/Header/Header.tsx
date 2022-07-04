@@ -14,9 +14,10 @@ export function Header(){
                     style={{textDecoration:'none', color:'white'}}
                     >Desbravadores</Link>
 
+                    <Link to="/login">
+                        <span>Entrar</span>
+                    </Link>
                     
-                    <span>Entrar</span>
-                    {/* <span></span> */}
                 </div>
             </Container>
         </>
