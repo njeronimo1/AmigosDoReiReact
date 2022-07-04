@@ -1,5 +1,4 @@
-import axios, { AxiosRequestHeaders } from 'axios';
-import { getUserLocalStorage } from '../contexts/AuthProvider/util';
+import axios from 'axios';
 
 export const apiLogin = axios.create({
     baseURL: 'https://reqres.in/api/',
