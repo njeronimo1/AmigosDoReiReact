@@ -18,7 +18,6 @@ export function ListaDesbravadores(){
 
     const { id } = useParams();
     const [usuarios, setUsuarios] = useState<Desbravadores[]>([]);
-    const [profileImg, setProfileImg] = useState("");
 
     const [isEditUser, setEditUser] = useState(false);
     const [isExcluirUser, setExcluirUser] = useState(false);

@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Container } from "./style";
-import { useEffect, useState } from "react";
 import {GoogleLogo} from 'phosphor-react';
 
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
