@@ -21,7 +21,7 @@ export const Container = styled.div`
             padding: 0 1rem 00;
             color: white;
             cursor: pointer;
-
+            
             &:hover{
                 opacity: 0.8;
             }

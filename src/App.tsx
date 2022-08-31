@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Login } from './pages/Login/Login';
 import { AuthProvider } from './contexts/AuthProvider';
-import { ProtectedLayout } from './components/ProtectedLayout/Home';
+import { HomePage } from './pages/Home';
 
 export function App() {
   
@@ -18,7 +18,7 @@ export function App() {
               <Route path='/desbravadores' element={<ListaDesbravadores /> } />
               <Route path='/desbravadores/:id' element={<ListaDesbravadores />} />
               <Route path='/login' element={ <Login /> }/>
-              <Route path='/profile' element={ <ProtectedLayout />}/>
+              <Route path='/home' element={ <HomePage />}/>
             </Routes>
         </BrowserRouter>
       </AuthProvider>

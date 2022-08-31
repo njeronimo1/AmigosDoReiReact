@@ -7,12 +7,25 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0px;
         padding: 0px;
         box-sizing: border-box;
+        height: 100vh;
         background-image: url(${imgFundo});
+        background-size: cover;
+        background-position: center;
+        background-repeat:no-repeat;
     }
 
     body, button, input, textarea{
         font-family: 'Poppins', sans-serif;
     }
+
+    :root{
+        --blackprimary: #363636;
+        --orange: #F6750D;
+        --blacksecundary: #2C2C2C;
+        --orangehover: rgba(246, 117, 13, 0.3);
+
+    }
+
     button{
         cursor: pointer;
     }

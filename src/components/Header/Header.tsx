@@ -10,11 +10,9 @@ export function Header(){
                     <p>Amigos do Rei</p>
                 </div>
                 <div>
-                    <Link to="/desbravadores"
-                    style={{textDecoration:'none', color:'white'}}
-                    >Desbravadores</Link>
 
-                    <Link to="/login">
+                    <Link to="/login"
+                    style={{textDecoration:'none', color:'white'}}>
                         <span>Entrar</span>
                     </Link>
                     

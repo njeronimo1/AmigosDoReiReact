@@ -1,5 +1,38 @@
 import styled from 'styled-components';
 
+export const ContainerHeader = styled.div`
+    background-color: #2c2c2c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .txt_bem_vindo{
+        border-right: 0.15rem solid gray;
+        padding-right: 1rem;
+    }
+
+    .user_name{
+        margin-left: 1rem;
+    }
+
+    .btn_sair{
+        margin-left: 1rem;
+        border: 0.15rem solid #ce6a00;
+        padding: 0.2rem 0.6rem;
+        background-color: transparent;
+        color: white;
+        border-radius: 14px;
+        transition: 0.3s all;
+
+        &:hover{
+            background-color: #ce6a00;
+            border: 0.15rem solid #2c2c2c;
+        }
+    }
+
+`
+
 export const Container = styled.div `
 
     color: white;
@@ -70,3 +103,31 @@ export const Container = styled.div `
 
 `
 
+export const ContainerBlockedAccess = styled.div`
+
+    width: 100%;
+    height: 100vh;
+    background: #2c2c2c;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ce6a00;
+
+    p{
+        border: 0.15rem solid white;
+        padding: 0.2rem 1.5rem;
+        transition: 0.2s all;
+
+        &:hover{
+            background-color: white;
+            color: #2c2c2c;
+        }
+
+        &:active{
+            opacity: 0.8;
+        }
+    }
+
+`

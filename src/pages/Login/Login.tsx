@@ -1,60 +1,51 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Container } from "./style";
-import { FormEvent, useState } from "react";
-import { useAuth } from "../../contexts/AuthProvider/useAuth";
+import { useEffect, useState } from "react";
+import {GoogleLogo} from 'phosphor-react';
 
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {auth} from '../../services/firebaseAuth';
+import { toast } from "react-toastify";
+import { useAuth } from "../../contexts/AuthProvider/useAuth";
 
 export function Login(){
 
-    const auth = useAuth();
+    const authLogin = useAuth();
     const history = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    async function handleLogin(e:FormEvent){
-        e.preventDefault();
+    function handleGoogleLogin(){
+        const provider = new GoogleAuthProvider();
 
-        try{
-            
-            await auth.authenticate(email, password);
-
-            history('/profile');
-        }catch(error){
-            console.log(error);
-        }
+        signInWithPopup(auth, provider).then((result)=>{
+            authLogin.savedUser(result.user);
+            history('/desbravadores');
+        }).catch((error)=>{
+            toast.error(error);
+        });
     }
+
+    const user = authLogin.email;
+    console.log(user);
 
     return(
         <Container>
             <Link to="/">
-                <button>Voltar</button>
+                <button className="btn_voltar">Voltar</button>
             </Link>
 
-            <form onSubmit={handleLogin}>
-                <header>
-                    <h1>Login</h1>
-                    </header>
-                <div>
-                    <label>Email</label>
-                    
-                    <input 
-                    type="text" 
-                    placeholder="Digite seu e-mail...."
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                    />
-                    <label>Senha</label>
-                    
-                    <input 
-                    type="password" 
-                    placeholder="Senha"
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                    />
+            <div className="formulario_login">
 
-                    <input type="submit" value="Entrar"/>
-                </div>
-            </form>
+            <h1>Faça login com sua conta no Google</h1>
+            
+
+                <button 
+                type="button"
+                onClick={handleGoogleLogin} value="Entrar"
+                className="btn_entrar_with_google"
+                >
+                    <GoogleLogo size={35} />
+                </button>
+            </div>
         </Container>
     )
 }

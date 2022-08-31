@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { EditUser } from "../../components/EditUser";
 import { api } from "../../services/api";
-import { Container } from "./styles";
+import { Container, ContainerBlockedAccess, ContainerHeader } from "./styles";
 import { ExcluirUser } from "../../components/EditUser/ExcluirUser/excluirUser";
+import { useAuth } from "../../contexts/AuthProvider/useAuth";
+import { LockSimple } from "phosphor-react";
 
 interface Desbravadores {
     nome: string;
@@ -16,9 +18,12 @@ export function ListaDesbravadores(){
 
     const { id } = useParams();
     const [usuarios, setUsuarios] = useState<Desbravadores[]>([]);
+    const [profileImg, setProfileImg] = useState("");
 
     const [isEditUser, setEditUser] = useState(false);
     const [isExcluirUser, setExcluirUser] = useState(false);
+
+    const infoUser = useAuth();
 
     function onOpenEditUser(){
       setEditUser(true);
@@ -44,10 +49,43 @@ export function ListaDesbravadores(){
     useEffect(()=>{
         api.get('/usuarios')
         .then(response => setUsuarios(response.data));
+
     }, []);
 
-    return(
+    const auth = useAuth()
+    const history = useNavigate();
+    
+    console.log(auth.email);
+    if(!auth.email){
+        return(
+            <ContainerBlockedAccess>
+                <LockSimple size={50} />
+                <h1 style={{color:'white'}}>Você não tem acesso a essa página, faça login com sua conta no Google e continue.</h1>
+
+                <Link to="/login"
+                    style={{textDecoration:'none', color:'white'}}
+                    >
+                        <p>Login</p></Link>
+            </ContainerBlockedAccess>
+        )
+    }
+
+    function logOut(){
+        auth.logout();
+        history('/');
+    }
+
+    console.log(infoUser.photoURL);
+
+    return(<div>
+            <ContainerHeader>
+                <p className="txt_bem_vindo">Seja bem-vindo</p>
+                <div className="border"></div>
+                <p className="user_name">{infoUser.displayName}</p>
+                <button className="btn_sair" onClick={logOut} >Sair</button>
+            </ContainerHeader>
             <Container>
+                
                 <div>
                     <Link to="/"
                     style={{textDecoration:'none', color:'white'}}
@@ -103,6 +141,6 @@ export function ListaDesbravadores(){
                 <ExcluirUser id={id} isOpenExcluirUser={isExcluirUser} onCloseExcluirUser={onCloseExcluirUser} />  
 
             </Container>
-            
+        </div>           
     )
 }
