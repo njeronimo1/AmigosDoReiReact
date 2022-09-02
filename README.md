@@ -1,4 +1,4 @@
-# Aplicação para cadastro de membros, área logada com leitura, edição e exclusão de novos membros do Clube Amigos do Rei  :smiley:
+# Aplicação com: cadastro, área logada, leitura, edição e exclusão de novos membros do Clube Amigos do Rei  :smiley:
 
 Sobre:
 
